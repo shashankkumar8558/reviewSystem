@@ -1,0 +1,39 @@
+# ✅ Node modules (never commit this)
+node_modules/
+
+# ✅ dotenv config (contains secrets)
+.env
+
+# ✅ Build or transpiled outputs
+dist/
+build/
+
+# ✅ Prisma generated client
+generated/
+.prisma/
+
+# ✅ Prisma migrations (only ignore if not needed in repo)
+# prisma/migrations/   ← comment this if you're collaborating and want to share migration history
+
+# ✅ Log files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ✅ OS-specific
+.DS_Store
+Thumbs.db
+
+# ✅ VSCode folder (editor config)
+.vscode/
+
+# ✅ Git folder (sometimes auto-created)
+.git/
+
+# ✅ Optional: ignore compiled TypeScript output
+*.tsbuildinfo
+
+# ✅ Temporary files
+*.swp
+*.swo
