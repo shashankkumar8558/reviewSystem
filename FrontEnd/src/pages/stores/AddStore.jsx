@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import Navbar from "../../../component/Navbar";
+import Navbar from "../../component/Navbar";
+
 
 
 const AddStore = () => {
@@ -14,7 +15,7 @@ const AddStore = () => {
 
   const fetchOwners = async () => {
     try {
-      const res = await fetch(`http://localhost:3000/api/admin/users?role=OWNER`, {
+      const res = await fetch(`http://localhost:3000/api/admin/users/list?role=OWNER`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -62,6 +63,8 @@ const AddStore = () => {
     }
   };
 
+  console.log(owners,"pppppppppppp");
+  
   return (
     <div>
       <Navbar />

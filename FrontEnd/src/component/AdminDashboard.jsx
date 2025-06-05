@@ -81,6 +81,7 @@ const AdminDashboard = () => {
   }
 };
 
+console.log(stores,"SSSSSSSSSSSSS");
 
   return (
     <div>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import Navbar from "../../../component/Navbar";
+import Navbar from "../../component/Navbar";
+
 
 
 const AllStores = () => {
@@ -15,7 +16,7 @@ const AllStores = () => {
   const fetchStores = async () => {
     try {
       const res = await fetch(
-        `http://localhost:5000/api/store/search?query=${query}`,
+        `http://localhost:3000/rating/store/search?query=${query}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -34,7 +35,7 @@ const AllStores = () => {
     if (!value) return alert("Select a rating");
 
     try {
-      const res = await fetch("http://localhost:3000/api/rating", {
+      const res = await fetch("http://localhost:3000/rating", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

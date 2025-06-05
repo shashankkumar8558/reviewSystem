@@ -1,10 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-/* import UserDashboard from "./pages/Dashboard/UserDashboard";*/
 import ProtectedRoute from "./routes/ProtectedRoute";
-import AdminDashboard from "../component/AdminDashboard";
-import OwnerDashboard from "../component/OwnerDashboard";
+import AdminDashboard from "./component/AdminDashboard"
+import OwnerDashboard from "./component/OwnerDashboard";
 import AllStores from "./pages/stores/AllStores";
 import AddStore from "./pages/stores/Addstore";
 

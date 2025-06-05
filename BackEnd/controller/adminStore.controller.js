@@ -30,7 +30,8 @@ export const adminStoreCreate = async (req, res) => {
         storeName,
         storeEmail,
         storeAddress,
-        ownerId
+        ownerId,
+        storeRating : 0
       }
     })
 
@@ -68,5 +69,30 @@ export const adminStoresList = async (req, res) => {
   } catch (err) {
     console.error("Failed to fetch stores", err);
     res.status(500).json({ message: "Store list fetch failed", error: err.message });
+  }
+};
+
+export const deleteStore = async (req, res) => {
+  try {
+    const { storeID } = req.body;
+
+    if (!storeID) {
+      return res.status(400).json({ message: "storeID is required" });
+    }
+
+    const storeToDelete = await prisma.store.delete({
+      where: {
+        id: storeID, 
+      },
+    });
+
+    return res.status(200).json({ message: "Store deleted successfully", storeToDelete });
+
+  } catch (error) {
+    if (error.code === "P2025") {
+      return res.status(404).json({ message: "Store not found" });
+    }
+    console.error("Failed to delete store:", error);
+    res.status(500).json({ message: "Store deletion failed", error: error.message });
   }
 };

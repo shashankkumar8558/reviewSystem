@@ -63,3 +63,35 @@ export const updateRating = async (req, res) => {
     res.status(500).json({ message: "Failed to update rating", error: err.message });
   }
 };
+
+
+
+export const searchStores = async (req, res) => {
+  try {
+    const { query } = req.query;
+
+    const stores = await prisma.store.findMany({
+      where: {
+        OR: [
+          {
+            storeName: {
+              contains: query || "",
+              mode: "insensitive",
+            },
+          },
+          {
+            storeAddress: {
+              contains: query || "",
+              mode: "insensitive",
+            },
+          },
+        ],
+      },
+    });
+
+    res.status(200).json({ stores });
+  } catch (err) {
+    console.error("Error in searchStores:", err);
+    res.status(500).json({ message: "Failed to fetch stores", error: err.message });
+  }
+};
