@@ -13,14 +13,15 @@ const Navbar = () => {
       <div className="font-bold text-xl text-blue-600">Review System</div>
       
      {/*  only when role is admin  */}
-      <button
+     {user.role === 'ADMIN' ? <button
           onClick={() => {
             navigate("/dashboard/admin/add-store");
           }}
           className="bg-blue-600 text-white px-3 py-1 rounded hover:bg-white-700 text-sm text-blue"
         >
           Add Store
-        </button>
+        </button> : null}
+      
 
       <div className="flex items-center gap-4">
         <span className="text-sm font-medium">
